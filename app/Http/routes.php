@@ -29,13 +29,13 @@ Route::get('/category', 'View\BookController@toCategory');
 Route::get('/product/category_id/{category_id}', 'View\BookController@toProduct');
 Route::get('/product/{product_id}', 'View\BookController@toPdtContent');
 
-
 Route::group(['prefix'=>'service'], function() {
     Route::get('validate_code/create','Service\ValidateController@verify');
     Route::post('validate_phone/send','Service\ValidateController@sendSMS');
     Route::post('register', 'Service\MemberController@register');
     Route::post('login','Service\MemberController@login');
     Route::get('category/parent_id/{parent_id}', 'Service\BookController@getCategoryByParentId');
+    Route::get('cart/add/{product_id}', 'Service\CartController@addCart');
 });
 
 
